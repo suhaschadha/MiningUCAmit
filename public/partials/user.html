@@ -1,0 +1,44 @@
+ <div class="row" ng-controller="UserController">
+                <div class="col-lg-12">
+                    <h1 class="page-header" style="border-bottom:solid;border-bottom-color:#337ab7;border-bottom-width:5px;">
+                      Mining Users</h1>
+                </div>
+            
+            <div class="row">
+                <div class="col-lg-12">
+                    <table class="table table-striped table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>Full Name</th>         
+          <th>E-Mail</th>
+          <th>Actor</th>
+          <th colspan="1">Actions</th>
+          
+          <th>&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody> 
+        <tr>
+          <td><input class="form-control" ng-model="User.fullname" required></td>
+          <td><input class="form-control" ng-model="User.EMailID" required></td>
+          <td><select class="form-control" ng-model="User.type" required>
+            <option ng-repeat="option in UserType" value="{{option.dropdownvalue}}">{{option.dropdownname}}</option>
+            </select> </td>
+          <td><button class="btn btn-primary" ng-click="addUser()">Add User</button></td> 
+          <td><button class="btn btn-info" ng-click="updateUser()">Update</button>&nbsp;&nbsp;
+          <button class="btn btn-info" ng-click="deselect()">Clear</button></td>         
+        </tr>
+      <tr ng-repeat="UserM in Userlist">
+          <td>{{UserM.fullname}}</td>
+          <td>{{UserM.EMailID}}</td>
+          <td>{{UserM.type}}</td>
+          <td><button class="btn btn-danger" ng-click="remove(UserM._id)">Remove</button></td>
+          <td><button class="btn btn-warning" ng-click="edit(UserM._id)">Edit</button></td>
+     </tr>       
+      </tbody>
+</table>
+
+              
+                </div>
+            </div>
+            </div>
